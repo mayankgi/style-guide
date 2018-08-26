@@ -18,6 +18,9 @@ $theme: default;
 $dominant-color: #000;
 $complimentory-color: #000;
 $ternary-color: #000;
+$white-color: #ffffff;
+$black-color: #000000;
+$blackish-color: #333333;
 
 //text and background
 $primary-color:
@@ -33,6 +36,10 @@ $link-color-primary:
 $link-color-secondary: 
 $header-color:
 $menu-item-color
+
+//Buttons
+$button-bg-color-default:            $white-color;
+$button-border-color-default:  $blackish-color;
 ```
 
 ## Font Family ##
@@ -66,9 +73,12 @@ $h5-font-size:                $font-size-base * 1.25 !default;
 $h6-font-size:                $font-size-base !default;
 
 $headings-margin-bottom:      ($spacer / 2) !default;
+
+$button-padding:              .75 rem .5rem;
+$button-border-radius-size:   .3125rem;
 ```
 
-font-weight
+## font-weight ##
 
 ```
 $font-weight-lighter:         lighter !default;
@@ -94,7 +104,7 @@ $zindex-tooltip:           1070 !default;
 
 Useful mixins.  
 
-## Screen ##
+## Media Queries ##
 
 ```
 /* 
@@ -117,19 +127,6 @@ Useful mixins.
 @include center-abs($direction: vertical);
 
 @include center-flex($direction: vertical);
-```
-
-## Size ##
-
-```
-/*
-* @params: 
-*   $size: size in px to be converted
-*   $base (optional - default 16px): base in px to be used for calculation
-*/
-@include rem($size: 18px, $base: 16px);
-
-@include em($size: 18px, $base: 16px);
 ```
 
 ## Animation ##
@@ -167,20 +164,52 @@ Useful mixins.
 }
 ```
 
+## Loading Themes ##
+Loads variables for new theme.
+```
+/*
+* @params: 
+*   $name: name of the theme. This name will be applied to $theme variable. 
+*   @baseUrl (optional. Default to ../variables): prefix for url to load theme from.
+*/
+@include loadTheme($name: dark, $baseUrl);
+```
+
+
+# Functions #
+
+## Size ##
+```
+/*
+* @params: 
+*   $size: size in px to be converted
+*   $base (optional - default 16px): base in px to be used for calculation
+*/
+rem($size: 18px, $base: 16px);
+
+em($size: 18px, $base: 16px);
+```
+
+## Increase z-index ##
+Increases z-index of passed z-index variable;
+```
+/*
+* @params:
+*   $name: name of the z-index variable. ($zindex-dropdown|$zindex-sticky|$zindex-fixed|$zindex-modal-backdrop|$zindex-modal|$zindex-popover|
+$zindex-tooltip)
+*/
+incrementZIndex($name);
+```
+
 # Styles #
 
 ## Typography ##
 ```
-body{
-    font-size: 16px;
-    font-family: $font-primary;
-}
-
 //h1 - h6 styling
-#heading-tags: h1, h2, h3, h4, h5, h6;
-@each tag in heading-tags {
-    .#{tag}{
-        font-size: $#{tag}-font-size;    
+
+@for $i from 1 through 6 {
+    h#{$i}{
+        font-size: $h#{$i}-font-size;    
         margin-bottom: $headings-margin-bottom;
     }
 }
@@ -199,6 +228,35 @@ p{
 
 ## Button ##
 
+```
+$button-class-postfix: primary, success, danger, warning; 
+button{
+    background-color: $button-bg-color-default;
+    padding: $button-padding;
+    border: 1px solid $button-border-color-default;
+    border-radius: $button-border-radius-size;
+    $color: $text-color-primary;
+    &:disabled{
+        background-color: $disabled-color;
+        border-color: darken($disabled-color, 15%);
+    }
+    &:hover{
+        background-color: darken($disabled-color, 15%);
+        background-color: darken($disabled-color, 30%)
+    }
+    @each $postfix in $button-classes{
+        &.btn-#{$postfix}{
+            background-color: #{$postfix}-color;
+            border-color: darken(#{$postfix}-color, 15%);
+            color: $white-color;
+            &:hover{
+                background-color: darken(#{$postfix}-color, 15%);
+                background-color: darken(#{$postfix}-color, 30%)
+            }
+        }
+    }   
+}
+```
 # Layout #
 
 ## Container ##
