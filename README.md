@@ -15,46 +15,48 @@ $theme: default;
 ## Colors ##
 ```
 //background
-$dominant-color: #000;
-$complimentory-color: #000;
-$ternary-color: #000;
-$white-color: #ffffff;
-$black-color: #000000;
-$blackish-color: #333333;
+$dominant-color:                 #F2ECE6 !default;
+$complimentory-color:            #222222 !default;
+$ternary-color:                  #C19C7A !default;
+$white-color:                    #ffffff !default;
+$black-color:                    #000000 !default;
+$blackish-color:                 #333333 !default;
 
 //text and background
-$primary-color:
-$success-color: 
-$danger-color: red;
-$warning-color: yellow;
-$disabled-color: 
+$primary-color:                  #CDE5FE !default;
+$success-color:                  #D5EDDB !default;
+$danger-color:                   #D5EDDB !default;
+$warning-color:                  #FFF2CF !default;
+$disabled-color:                 #E2E3E5 !default; 
 
 //Text
-$text-color-primary: #333333;
-$text-color-secondary: 
-$link-color-primary: 
-$link-color-secondary: 
-$header-color:
-$menu-item-color
+$text-color-primary:             #333333 !default;
+$text-color-secondary:           #888888 !default;
+$link-color-primary:             #5CA7DA !default;
+$link-color-secondary:           #EBA559 !default;
+$header-color:                   #C19C7A !default;
+$menu-item-color:                $primary-color;
 
 //Buttons
-$button-bg-color-default:            $white-color;
-$button-border-color-default:  $blackish-color;
+$button-bg-color-default:        $white-color;
+$button-border-color-default:    $blackish-color;
 ```
 
 ## Font Family ##
 ```
-$font-primary: 
-$font-secondary: 
-$header-font
+//Font family
+//Font family
+$font-primary:                   'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
+$font-secondary:                 "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+$header-font:                    'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
 ```
 
 ## Breakpoints ##
 ```
-$breakpoint-tiny: 
-$breakpoint-small
-$breakpoint-medium: 
-$breakpoint-large
+$breakpoint-tiny:               400px;
+$breakpoint-small:              576px;
+$breakpoint-medium:             768px;
+$breakpoint-large:              992px;
 ```
 
 ## Size ##
