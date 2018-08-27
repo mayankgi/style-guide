@@ -115,7 +115,13 @@ Useful mixins.
 *   type (optional - default max): max|min
 */
 
-@include screen($size: medium, $type: max)
+@include screen($size: medium, $type: max){
+    //...styles
+}
+
+@include retina{
+    //...styles
+}
 ```
 
 ## Centering Elements ##
@@ -156,14 +162,6 @@ Useful mixins.
 
 ```
 @include clearfix;
-
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
 ```
 
 ## Loading Themes ##

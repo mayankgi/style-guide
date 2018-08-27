@@ -1,0 +1,45 @@
+/*
+* @description: Centers element using absolute position. 
+* @params: 
+*       $direction: vertical|horizontal|both
+*/
+@mixin center-absnter($direction: both) {
+    position: absolute;
+    
+    @if $direction == 'vertical' {
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    @else if $direction == 'horizontal' {
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translate(-50%);
+    }
+    @else if $direction == 'both' {
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
+/*
+* @description: Centers elements using display flex. 
+*               Assumes flex direction as row. 
+* @params: 
+*       $direction: vertical|horizontal|both
+*/
+@mixin center-flex($direction: both){
+    display: flex;
+    @if ($direction == vertical or $direction == both){
+        justify-content: center;
+    }
+    @if ($direction == horizontal or $direction == both){
+        align-items: center;
+    }
+}
