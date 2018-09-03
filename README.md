@@ -44,8 +44,6 @@ $button-border-color-default:    $blackish-color;
 
 ## Font Family ##
 ```
-//Font family
-//Font family
 $font-primary:                   'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
 $font-secondary:                 "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 $header-font:                    'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
@@ -61,7 +59,8 @@ $breakpoint-large:              992px;
 
 ## Size ##
 ```
-$font-size-base:              1rem !default; $font-size-lg:                ($font-size-base * 1.25) !default;
+$font-size-base:              1rem !default; 
+$font-size-lg:                ($font-size-base * 1.25) !default;
 $font-size-sm:                ($font-size-base * .875) !default;
 $spacer:                      1rem !default;
 
